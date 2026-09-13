@@ -8,12 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * RF-ENF-06: Consultar los pacientes asignados a cada enfermera.
- *
- * GET /api/enfermeras/{enfermeraId}/pacientes
- * GET /api/enfermeras/{enfermeraId}/pacientes?fecha=2026-09-06
- */
 @RestController
 @RequestMapping("/api/enfermeras")
 public class AsignacionEnfermeriaController {

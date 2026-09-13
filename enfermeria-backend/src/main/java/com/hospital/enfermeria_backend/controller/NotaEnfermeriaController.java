@@ -10,16 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * RF-ENF-31: Registrar notas de enfermeria (CRUD completo).
- *
- * POST   /api/notas-enfermeria
- * GET    /api/notas-enfermeria
- * GET    /api/notas-enfermeria/{id}
- * GET    /api/notas-enfermeria/paciente/{pacienteId}
- * PUT    /api/notas-enfermeria/{id}
- * DELETE /api/notas-enfermeria/{id}
- */
 @RestController
 @RequestMapping("/api/notas-enfermeria")
 public class NotaEnfermeriaController {

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Enfermería — Sistema Hospitalario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="topbar-inner">
+        <div class="brand">
+            <span class="brand-mark">+</span>
+            <div class="brand-text">
+                <strong>Módulo de Enfermería</strong>
+                <span>Sistema de Gestión Hospitalaria</span>
+            </div>
+        </div>
+        <div class="server-status" id="serverStatus">
+            <span class="dot" id="statusDot"></span>
+            <span id="statusText">Verificando conexión…</span>
+        </div>
+    </div>
+</header>
+
+<nav class="tabs">
+    <button class="tab-btn active" data-tab="pacientes">Pacientes asignados</button>
+    <button class="tab-btn" data-tab="notas">Notas de enfermería</button>
+</nav>
+
+<main class="content">
+
+    <section id="tab-pacientes" class="tab-panel active">
+        <div class="panel-header">
+            <h1>Pacientes asignados a una enfermera</h1>
+            <p class="subtitle">RF-ENF-06 — Consulta los pacientes a cargo de una enfermera según su turno.</p>
+        </div>
+
+        <form id="formPacientes" class="inline-form">
+            <label for="enfermeraId">ID de enfermera</label>
+            <input type="number" id="enfermeraId" min="1" value="1" required>
+            <button type="submit" class="btn-primary">Buscar</button>
+        </form>
+
+        <div id="pacientesMsg" class="msg"></div>
+
+        <div id="pacientesGrid" class="cards-grid"></div>
+    </section>
+
+    <section id="tab-notas" class="tab-panel">
+        <div class="panel-header">
+            <h1>Notas de enfermería</h1>
+            <p class="subtitle">RF-ENF-31 — Registro, edición y eliminación de notas clínicas.</p>
+        </div>
+
+        <form id="formNota" class="stacked-form">
+            <input type="hidden" id="notaId">
+            <div class="form-row">
+                <div class="field">
+                    <label for="pacienteId">ID de paciente</label>
+                    <input type="number" id="pacienteId" min="1" required>
+                </div>
+                <div class="field">
+                    <label for="notaEnfermeraId">ID de enfermera</label>
+                    <input type="number" id="notaEnfermeraId" min="1" required>
+                </div>
+            </div>
+            <div class="field">
+                <label for="contenido">Contenido de la nota</label>
+                <textarea id="contenido" rows="3" required placeholder="Escribe la observación clínica…"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-primary" id="btnGuardarNota">Registrar nota</button>
+                <button type="button" class="btn-secondary" id="btnCancelarEdicion" hidden>Cancelar edición</button>
+            </div>
+        </form>
+
+        <div id="notasMsg" class="msg"></div>
+
+        <div class="list-header">
+            <h2>Notas registradas</h2>
+            <button class="btn-ghost" id="btnRefrescarNotas">Actualizar lista</button>
+        </div>
+
+        <div id="notasList" class="notes-list"></div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <span>API base: <code id="apiBaseLabel"></code></span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
